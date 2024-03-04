@@ -69,7 +69,7 @@
         </v-col>
       </v-row>
       <v-bottom-navigation :elevation="0" mode="shift">
-        2024, Felipe Laurindo
+        {{this.date.getDate()}} / {{this.date.getMonth()+1}} / {{this.date.getYear()+1900}}
       </v-bottom-navigation>
     </v-main>
   </v-layout>
@@ -78,6 +78,7 @@
 <script>
 export default {
   data: () => ({
+    date: new Date(),
     fee: "",
     feeCalculated: "0",
     radios: "true",
