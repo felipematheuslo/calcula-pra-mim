@@ -9,8 +9,8 @@
           @click="$router.push('/')"
         >
         </v-btn>
-        <v-app-bar-title class="flex text-center mx-0">
-          Conversor de taxas de juros
+        <v-app-bar-title class="webPageName flex text-center mx-0">
+          Calcula pra mim!
         </v-app-bar-title>
         <v-btn
           size="large"
@@ -60,7 +60,14 @@
 
                 <v-row justify="center">
                   <v-col align="center">
-                    <v-btn icon="mdi-calculator" @click="calculate">
+                    <v-btn
+                      variant="flat"
+                      color="indigo"
+                      append-icon="mdi-calculator"
+                      size="large"
+                      @click="calculate"
+                    >
+                      Calcular
                     </v-btn>
                   </v-col>
                 </v-row>
@@ -114,6 +121,10 @@ export default {
 </script>
 
 <style>
+.webPageName {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 29px
+}
 .v-selection-control-group {
   justify-content: center;
 }
