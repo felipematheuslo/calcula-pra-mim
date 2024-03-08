@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkfee_calculator"]=self["webpackChunkfee_calculator"]||[]).push([[956],{4956:function(e,r,n){n.r(r),n.d(r,{default:function(){return f}});var o=n(6768);const u={class:"home"},s=(0,o.Lk)("h1",null,"Essa é a página Home",-1);function t(e,r){const n=(0,o.g2)("router-link");return(0,o.uX)(),(0,o.CE)("div",u,[s,(0,o.bF)(n,{to:"/conversor-de-juros"},{default:(0,o.k6)((()=>[(0,o.eW)("Conversor de juros")])),_:1})])}var a=n(1241);const c={},l=(0,a.A)(c,[["render",t]]);var f=l}}]);
-//# sourceMappingURL=956.eb3163c6.js.map
