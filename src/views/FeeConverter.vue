@@ -40,8 +40,8 @@
 
               <v-card-item>
                 <v-radio-group inline v-model="radios">
-                  <v-radio label="Anual → Mensal" value="true"></v-radio>
-                  <v-radio label="Mensal → Anual" value="false"></v-radio>
+                  <v-radio label="Anual → Mensal" value="true" @change="feeCalculated=0"></v-radio>
+                  <v-radio label="Mensal → Anual" value="false" @change="feeCalculated=0"></v-radio>
                 </v-radio-group>
 
                 <v-row justify="center">
@@ -53,6 +53,7 @@
                       v-model="fee"
                       :suffix="radios == 'true' ? '% a.a.' : '% a.m.'"
                       variant="outlined"
+                      @change="calculate"
                     >
                     </v-text-field>
                   </v-col>
