@@ -6,13 +6,16 @@ import '@mdi/font/css/materialdesignicons.css'
 // Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
+import { createHead } from '@vueuse/head'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import router from './router'
+
+const head = createHead()
 
 const vuetify = createVuetify({
   components,
   directives,
 })
 
-createApp(App).use(router).use(vuetify).mount('#app')
+createApp(App).use(head).use(router).use(vuetify).mount('#app')

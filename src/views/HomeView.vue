@@ -49,7 +49,7 @@
                   variant="outlined"
                   outlined
                   append-icon="mdi-chevron-right"
-                  @click="$router.push('/conversor-de-juros')"
+                  @click="$router.push('/conversordejuros')"
                 >
                   Usar
                 </v-btn>
@@ -61,6 +61,29 @@
     </v-layout>
   </v-container>
 </template>
+
+<script>
+
+import { useHead } from '@vueuse/head'
+
+export default ({
+  setup() {
+    useHead({
+      title: 'Calcula pra mim!',
+      meta: [
+        {
+          name: 'description',
+          content: 'My website',
+        },
+        {
+          name: 'google-adsense-account',
+          content: 'ca-pub-7364145551999763',
+        },
+      ],
+    })
+  },
+})
+</script>
 
 <style>
 .webPageName {

@@ -96,6 +96,9 @@
 </template>
 
 <script>
+
+import { useHead } from '@vueuse/head'
+
 export default {
   data: () => ({
     fee: "",
@@ -117,6 +120,21 @@ export default {
         this.feeCalculated *= 100
       }
     },
+  },
+  setup() {
+    useHead({
+      title: 'Calcula pra mim! - Conversor de juros',
+      meta: [
+        {
+          name: 'description',
+          content: 'My website',
+        },
+        {
+          name: 'google-adsense-account',
+          content: 'ca-pub-7364145551999763',
+        },
+      ],
+    })
   },
 };
 </script>

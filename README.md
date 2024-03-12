@@ -1,5 +1,3 @@
-# fee-calculator
-
 ## Project setup
 ```
 npm install

@@ -1,19 +1,21 @@
-import { createRouter, createWebHistory } from 'vue-router'
-
-const routes = [
-  {
-    path: '/',
-    component: () => import('../views/HomeView.vue')
-  },
-  {
-    path: '/conversor-de-juros',
-    component: () => import('../views/FeeConverter.vue')
-  },
-]
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+  history: createWebHashHistory(process.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      component: () => import('../views/HomeView.vue')
+    },
+    {
+      path: '/conversordejuros',
+      component: () => import('../views/FeeConverter.vue')
+    },
+    {
+      path: "/:catchAll(.*)",
+      component: () => import('../views/HomeView.vue')
+    }
+  ]
 })
 
 export default router
