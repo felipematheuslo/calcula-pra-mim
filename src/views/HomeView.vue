@@ -9,25 +9,18 @@
 
       <v-main>
         <v-row class="mt-1">
-          <v-col cols="12" md="4" class="pa-0">
-            <v-card color="indigo" class="mx-2 mb-3">
+          <v-col cols="6" md="3" class="pa-0 d-flex">
+            <v-card color="indigo" class="mx-2 mb-3 d-flex flex-grow-1 flex-column">
               <v-card-title
                 class="text-h5 text-wrap"
               >
                 Conversor de taxa de juros
               </v-card-title>
 
-              <v-card-subtitle
-                class="text-h5 text-wrap"
-              >
-                % a.m. ↔ % a.a.
-              </v-card-subtitle>
-
               <v-card-text
                 class="text-wrap"
               >
-                <p> Calculadora para conversão de taxas de juros </p>
-                <p> Anual para Mensal e Mensal para Anual </p>
+                Calculadora online para conversão de taxas de juros anual e mensal
               </v-card-text>
 
               <v-card-actions>
@@ -42,24 +35,18 @@
               </v-card-actions>
             </v-card>
           </v-col>
-          <v-col cols="12" md="4" class="pa-0">
-            <v-card color="indigo" class="mx-2 mb-3">
+          <v-col cols="6" md="3" class="pa-0 d-flex">
+            <v-card color="indigo" class="mx-2 mb-3 d-flex flex-grow-1 flex-column">
               <v-card-title
                 class="text-h5 text-wrap"
               >
                 Minha Mega-Sena
               </v-card-title>
 
-              <v-card-subtitle
-                class="text-h5 text-wrap"
-              >
-                01 02 03 04 05 06
-              </v-card-subtitle>
-
               <v-card-text
                 class="text-wrap"
               >
-                <p> Ferramenta online para gerenciar seus jogos e conferir seus resultados da Mega-Sena </p>
+                Ferramenta online para gerenciar seus jogos e conferir seus resultados da Mega-Sena
               </v-card-text>
 
               <v-card-actions>
