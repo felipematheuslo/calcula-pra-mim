@@ -16,8 +16,28 @@
           size="large"
           icon="mdi-information"
           class="ma-0"
+          @click="info = true"
         >
         </v-btn>
+        <v-dialog
+          v-model="info"
+          width="auto"
+        >
+          <v-card
+            max-width="400"
+            prepend-icon="mdi-update"
+            text="Your application will relaunch automatically after the update is complete."
+            title="Update in progress"
+          >
+            <template v-slot:actions>
+              <v-btn
+                class="ms-auto"
+                text="Ok"
+                @click="info = false"
+              ></v-btn>
+            </template>
+          </v-card>
+        </v-dialog>
       </v-app-bar>
 
       <v-main>
@@ -31,11 +51,11 @@
             >
               <v-card-title class="mb-2 text-wrap">
                 <p> Conversor de taxas de juros </p>
-                <p> Anual ↔ Mensal </p>
+                <p> Anual &harr; Mensal </p>
               </v-card-title>
 
               <v-card-subtitle class="mb-2 text-wrap">
-                Escolha qual conversão deseja realizar
+                Escolha qual conversão deseja realizar:
               </v-card-subtitle>
 
               <v-card-item>
@@ -62,6 +82,7 @@
                 <v-row justify="center">
                   <v-col align="center">
                     <v-btn
+                      label="Valor da taxa de juros (%)"
                       variant="flat"
                       color="indigo"
                       append-icon="mdi-calculator"
@@ -76,12 +97,14 @@
                 <v-row justify="center">
                   <v-col cols="11" sm="6" align="center">
                     <v-text-field
-                      color="blue"
-                      focused
+                      hide-details
                       readonly
+                      label="Resultado:"
+                      type="number"
                       v-model="feeCalculated"
                       :suffix="radios == 'true' ? '% a.m.' : '% a.a.'"
                       variant="outlined"
+                      @change="calculate"
                     >
                     </v-text-field>
                   </v-col>
@@ -100,11 +123,15 @@
 import { useHead } from '@vueuse/head'
 
 export default {
-  data: () => ({
-    fee: "",
-    feeCalculated: "0",
-    radios: "true",
-  }),
+  data () {
+    return {
+      fee: '',
+      feeCalculated: '0',
+
+      radios: 'true',
+      info: false,
+    }
+  },
   mounted () {
   },
   methods: {
