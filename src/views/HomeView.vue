@@ -35,6 +35,34 @@
               </v-card-actions>
             </v-card>
           </v-col>
+
+          <v-col cols="6" md="3" class="pa-0 d-flex">
+            <v-card color="indigo" class="mx-2 mb-3 d-flex flex-grow-1 flex-column">
+              <v-card-title
+                class="text-h5 text-wrap"
+              >
+                Expectativas de Mercado
+              </v-card-title>
+
+              <v-card-text
+                class="text-wrap"
+              >
+                Projeções de índices como IPCA, Selic, IGP-M e Dólar
+              </v-card-text>
+
+              <v-card-actions>
+                <v-btn
+                  class="my-2 ms-2"
+                  variant="outlined"
+                  rounded="xl"
+                  @click="$router.push('/mercado')"
+                >
+                  Usar
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+
           <v-col cols="6" md="3" class="pa-0 d-flex">
             <v-card color="indigo" class="mx-2 mb-3 d-flex flex-grow-1 flex-column">
               <v-card-title

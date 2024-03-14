@@ -9,7 +9,11 @@ const router = createRouter({
     },
     {
       path: '/conversordejuros',
-      component: () => import('../views/FeeConverter.vue')
+      component: () => import('../views/ConversorJuros.vue')
+    },
+    {
+      path: '/mercado',
+      component: () => import('../views/ExpectativaMercado.vue')
     },
     {
       path: "/:catchAll(.*)",

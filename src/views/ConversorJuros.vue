@@ -12,32 +12,6 @@
         <v-app-bar-title class="webPageName flex text-center mx-0">
           Calcula pra mim!
         </v-app-bar-title>
-        <v-btn
-          size="large"
-          icon="mdi-information"
-          class="ma-0"
-          @click="info = true"
-        >
-        </v-btn>
-        <v-dialog
-          v-model="info"
-          width="auto"
-        >
-          <v-card
-            max-width="400"
-            prepend-icon="mdi-update"
-            text="Your application will relaunch automatically after the update is complete."
-            title="Update in progress"
-          >
-            <template v-slot:actions>
-              <v-btn
-                class="ms-auto"
-                text="Ok"
-                @click="info = false"
-              ></v-btn>
-            </template>
-          </v-card>
-        </v-dialog>
       </v-app-bar>
 
       <v-main>
@@ -129,7 +103,6 @@ export default {
       feeCalculated: '0',
 
       radios: 'true',
-      info: false,
     }
   },
   mounted () {
