@@ -9,7 +9,7 @@
           @click="$router.push('/')"
         >
         </v-btn>
-        <v-app-bar-title class="webPageName flex text-center mx-0">
+        <v-app-bar-title class="webPageName flex text-center ml-0 mr-14">
           Calcula pra mim!
         </v-app-bar-title>
       </v-app-bar>
