@@ -28,7 +28,7 @@
                   class="my-2 ms-2"
                   variant="outlined"
                   rounded="xl"
-                  @click="$router.push('/conversordejuros')"
+                  href="conversordejuros.html"
                 >
                   Usar
                 </v-btn>
@@ -55,7 +55,7 @@
                   class="my-2 ms-2"
                   variant="outlined"
                   rounded="xl"
-                  @click="$router.push('/mercado')"
+                  href="mercado.html"
                 >
                   Usar
                 </v-btn>

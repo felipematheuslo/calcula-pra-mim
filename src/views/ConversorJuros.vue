@@ -6,7 +6,7 @@
           size="large"
           icon="mdi-home"
           class="ma-0"
-          @click="$router.push('/')"
+          href="index.html"
         >
         </v-btn>
         <v-app-bar-title class="webPageName flex text-center ml-0 mr-14">
@@ -93,7 +93,6 @@
 </template>
 
 <script>
-
 import { useHead } from '@vueuse/head'
 
 export default {

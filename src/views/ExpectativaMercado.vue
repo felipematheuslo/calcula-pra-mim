@@ -6,7 +6,7 @@
           size="large"
           icon="mdi-home"
           class="ma-0"
-          @click="$router.push('/')"
+          href="index.html"
         >
         </v-btn>
         <v-app-bar-title class="webPageName flex text-center ml-0 mr-14">
@@ -26,14 +26,12 @@
         <v-row justify="center" class="my-3">
           <v-col cols="12" md="10" align="center" class="py-0">
             <v-text class="mb-2 text-wrap text-indigo">
-              <p class="text-justify">
-                Projeções dos principais índices do mercado brasileiro para os próximos anos, baseado em relatórios de pesquisa semanal realizada junto a diversas instituições financeiras, como bancos, corretoras e consultorias.
-              </p>
+              Projeções dos principais índices do mercado brasileiro para os próximos anos:
             </v-text>
           </v-col>
         </v-row>
 
-        <v-row justify="center" class="mt-3">
+        <v-row justify="center" class="mt-3 mb-5">
           <v-col cols="12" md="10" align="center" class="pa-0">
             <v-card
               color="indigo-darken-1"
@@ -56,9 +54,53 @@
               </v-card-text>
 
               <v-card-subtitle>
-                Atualizado em: 08/03/2024
+                Atualizado em: 15/03/2024
               </v-card-subtitle>
             </v-card>
+          </v-col>
+        </v-row>
+
+        <v-row justify="center" class="my-5">
+          <v-col cols="12" md="10" align="center" class="py-0">
+            <v-text class="text-wrap text-indigo">
+              <p class="text-h5">
+              O que é o relatório Focus?
+              </p>
+
+              <br/>
+            
+              <p class="text-justify">
+                O Relatório Focus é um boletim semanal divulgado pelo Banco Central do Brasil que apresenta projeções econômicas de diversos indicadores, como inflação, taxa de juros, crescimento do Produto Interno Bruto (PIB) e taxa de câmbio. Essas projeções são feitas por instituições financeiras e consultorias econômicas que participam da pesquisa. O objetivo do Relatório Focus é fornecer informações relevantes para auxiliar na análise e no acompanhamento da economia brasileira, sendo uma ferramenta importante para investidores, empresas e formuladores de políticas públicas.
+              </p>
+
+              <br/><br/>
+
+              <p class="text-h5">
+              Onde usar essas projeções?
+              </p>
+
+              <br/>
+
+              <p class="text-justify">
+              <b>Tomada de Decisões de Investimento:</b> Investidores podem utilizar as projeções para entender as perspectivas econômicas do país e ajustar suas estratégias de investimento de acordo com as expectativas de crescimento, inflação, taxa de juros e câmbio.
+              </p>
+              <br/>
+              <p class="text-justify">
+              <b>Planejamento Financeiro Empresarial:</b> Empresas podem utilizar as projeções para fazer previsões sobre a demanda por seus produtos e serviços, ajustar suas estratégias de produção e vendas, além de planejar investimentos e expansões de acordo com as condições econômicas esperadas.
+              </p>
+              <br/>
+              <p class="text-justify">
+              <b>Políticas Monetárias e Fiscais:</b> O Banco Central do Brasil pode utilizar as projeções do Relatório Focus como um indicador para ajustar suas políticas monetárias, como a definição da taxa básica de juros (Selic), com o objetivo de atingir metas de inflação e promover o crescimento econômico sustentável.
+              </p>
+              <br/>
+              <p class="text-justify">
+              <b>Planejamento Governamental:</b> Os órgãos governamentais podem utilizar as projeções para elaborar políticas públicas e orçamentos, considerando as expectativas de crescimento econômico, inflação e arrecadação de impostos.
+              </p>
+              <br/>
+              <p class="text-justify">
+              <b>Avaliação de Riscos e Oportunidades:</b> As projeções do Relatório Focus também podem ser utilizadas para avaliar os riscos e oportunidades associados a diferentes cenários econômicos, ajudando indivíduos, empresas e instituições financeiras a tomar decisões mais informadas e estratégicas.
+              </p>
+            </v-text>
           </v-col>
         </v-row>
       </v-main>
@@ -67,7 +109,6 @@
 </template>
 
 <script>
-
 import { useHead } from '@vueuse/head'
 
 export default {
@@ -83,7 +124,7 @@ export default {
       boats: [
         {
           indice: 'Dólar (R$/US$)',
-          ano0: '4.93',
+          ano0: '4.95',
           ano1: '5.00',
           ano2: '5.04',
           ano3: '5.10',
@@ -97,14 +138,14 @@ export default {
         },
         {
           indice: 'IPCA (variação%)',
-          ano0: '3.77',
-          ano1: '3.51',
+          ano0: '3.79',
+          ano1: '3.52',
           ano2: '3.50',
           ano3: '3.50',
         },
         {
           indice: 'IGP-M (variação%)',
-          ano0: '2.80',
+          ano0: '2.55',
           ano1: '3.80',
           ano2: '3.90',
           ano3: '3.80',

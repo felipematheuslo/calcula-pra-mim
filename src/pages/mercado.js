@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './views/HomeView.vue'
+import App from '../views/ExpectativaMercado.vue'
 
 // Material Design Icons
 import '@mdi/font/css/materialdesignicons.css'
