@@ -9,29 +9,29 @@
           href="index.html"
         >
         </v-btn>
-        <v-app-bar-title class="webPageName flex text-center ml-0 mr-14">
-          Calcula pra mim!
+        <v-app-bar-title class="flex text-center ml-0 mr-14">
+          <p class="webPageName"> Calcula pra mim! </p>
         </v-app-bar-title>
       </v-app-bar>
 
       <v-main>
-      <v-row justify="center" class="my-3">
+      <v-row justify="center" class="py-0 mt-3">
           <v-col align="center" class="py-0 mb-3">
-            <v-text class="text-wrap text-h5 text-indigo">
+            <v-text class="text-wrap text-h5">
               Expectativas de mercado
             </v-text>
           </v-col>
         </v-row>
 
-        <v-row justify="center" class="my-3">
+        <v-row justify="center" class="py-0 mb-10">
           <v-col cols="12" md="10" align="center" class="py-0">
-            <v-text class="mb-2 text-wrap text-indigo">
-              Projeções dos principais índices do mercado brasileiro para os próximos anos:
+            <v-text class="mb-2 text-wrap">
+              Projeções dos principais índices do mercado brasileiro para os próximos anos
             </v-text>
           </v-col>
         </v-row>
 
-        <v-row justify="center" class="mt-3 mb-5">
+        <v-row justify="center" class="mt-3 mb-10">
           <v-col cols="12" md="10" align="center" class="pa-0">
             <v-card
               color="indigo-darken-1"
@@ -40,7 +40,7 @@
             >
               <v-data-table
                 :headers="headers"
-                :items="boats"
+                :items="projecoes"
                 items-per-page="-1"
               >
               </v-data-table>
@@ -54,7 +54,7 @@
               </v-card-text>
 
               <v-card-subtitle>
-                Atualizado em: 15/03/2024
+                Atualizado em: {{updateDate}}
               </v-card-subtitle>
             </v-card>
           </v-col>
@@ -62,43 +62,15 @@
 
         <v-row justify="center" class="my-5">
           <v-col cols="12" md="10" align="center" class="py-0">
-            <v-text class="text-wrap text-indigo">
-              <p class="text-h5">
-              O que é o relatório Focus?
+            <v-text class="text-wrap">
+              <p class="text-h6">
+              O que é o Relatório Focus?
               </p>
 
               <br/>
             
               <p class="text-justify">
                 O Relatório Focus é um boletim semanal divulgado pelo Banco Central do Brasil que apresenta projeções econômicas de diversos indicadores, como inflação, taxa de juros, crescimento do Produto Interno Bruto (PIB) e taxa de câmbio. Essas projeções são feitas por instituições financeiras e consultorias econômicas que participam da pesquisa. O objetivo do Relatório Focus é fornecer informações relevantes para auxiliar na análise e no acompanhamento da economia brasileira, sendo uma ferramenta importante para investidores, empresas e formuladores de políticas públicas.
-              </p>
-
-              <br/><br/>
-
-              <p class="text-h5">
-              Onde usar essas projeções?
-              </p>
-
-              <br/>
-
-              <p class="text-justify">
-              <b>Tomada de Decisões de Investimento:</b> Investidores podem utilizar as projeções para entender as perspectivas econômicas do país e ajustar suas estratégias de investimento de acordo com as expectativas de crescimento, inflação, taxa de juros e câmbio.
-              </p>
-              <br/>
-              <p class="text-justify">
-              <b>Planejamento Financeiro Empresarial:</b> Empresas podem utilizar as projeções para fazer previsões sobre a demanda por seus produtos e serviços, ajustar suas estratégias de produção e vendas, além de planejar investimentos e expansões de acordo com as condições econômicas esperadas.
-              </p>
-              <br/>
-              <p class="text-justify">
-              <b>Políticas Monetárias e Fiscais:</b> O Banco Central do Brasil pode utilizar as projeções do Relatório Focus como um indicador para ajustar suas políticas monetárias, como a definição da taxa básica de juros (Selic), com o objetivo de atingir metas de inflação e promover o crescimento econômico sustentável.
-              </p>
-              <br/>
-              <p class="text-justify">
-              <b>Planejamento Governamental:</b> Os órgãos governamentais podem utilizar as projeções para elaborar políticas públicas e orçamentos, considerando as expectativas de crescimento econômico, inflação e arrecadação de impostos.
-              </p>
-              <br/>
-              <p class="text-justify">
-              <b>Avaliação de Riscos e Oportunidades:</b> As projeções do Relatório Focus também podem ser utilizadas para avaliar os riscos e oportunidades associados a diferentes cenários econômicos, ajudando indivíduos, empresas e instituições financeiras a tomar decisões mais informadas e estratégicas.
               </p>
             </v-text>
           </v-col>
@@ -114,6 +86,7 @@ import { useHead } from '@vueuse/head'
 export default {
   data () {
     return {
+      updateDate: '',
       headers: [
         { title: 'Índice', align: 'center', key: 'indice', sortable: false },
         { title: '2024', align: 'center', key: 'ano0', sortable: false },
@@ -121,7 +94,7 @@ export default {
         { title: '2026', align: 'center', key: 'ano2', sortable: false },
         { title: '2027', align: 'center', key: 'ano3', sortable: false },
       ],
-      boats: [
+      projecoes: [
         {
           indice: 'Dólar (R$/US$)',
           ano0: '4.95',
@@ -154,6 +127,7 @@ export default {
     }
   },
   mounted () {
+    this.updateDate = '19/03/2024'
   },
   methods: {
   },
@@ -174,7 +148,7 @@ export default {
 <style>
 .webPageName {
   font-family: 'Brush Script MT', cursive;
-  font-size: 29px
+  font-size: 30px
 }
 .v-data-table-header__content {
   font-weight: bolder;
