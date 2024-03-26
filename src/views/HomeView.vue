@@ -113,21 +113,7 @@
 </template>
 
 <script>
-
-import { useHead } from '@vueuse/head'
-
 export default ({
-  setup() {
-    useHead({
-      title: 'Calcula pra mim!',
-      meta: [
-        {
-          name: 'description',
-          content: 'My website',
-        },
-      ],
-    })
-  },
 })
 </script>
 
