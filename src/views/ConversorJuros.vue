@@ -75,7 +75,6 @@
                 <v-row justify="center">
                   <v-col align="center">
                     <v-btn
-                      label="Valor da taxa de juros (%)"
                       variant="flat"
                       color="indigo-darken-1"
                       append-icon="mdi-calculator"
