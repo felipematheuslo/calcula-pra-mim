@@ -18,7 +18,7 @@
         <v-row justify="center" class="my-3">
           <v-col align="center" class="py-0 mb-3">
             <v-text class="text-wrap text-h5">
-              Conversor de Taxas de Juros Anual &harr; Mensal
+              Correção de Valores por Índices de Preço
             </v-text>
           </v-col>
         </v-row>
@@ -46,25 +46,70 @@
               max-width="500"
               class="mx-2 py-1"
             >
-              <v-card-title class="pb-0 text-wrap">
-                Escolha qual conversão deseja realizar:
-              </v-card-title>
-
-              <v-card-item class="pt-0">
-                <v-radio-group inline v-model="radios">
-                  <v-radio label="Anual → Mensal" value="true" @change="feeCalculated=''"></v-radio>
-                  <v-radio label="Mensal → Anual" value="false" @change="feeCalculated=''"></v-radio>
-                </v-radio-group>
-
+              <v-card-item>
+                <v-row justify="center" class="mt-0">
+                  <v-col cols="12" align="left">
+                    <v-select
+                      focused
+                      v-model="indexValue"
+                      :items="indexItens"
+                      variant="outlined"
+                      label="* Índice para correção"
+                    >
+                    </v-select>
+                  </v-col>
+                </v-row>
+                
                 <v-row justify="center">
-                  <v-col cols="12" sm="11" align="center">
+                  <v-col cols="12" align="center">
                     <v-text-field
                       focused
-                      hide-details
-                      label="Valor da taxa de juros (%)"
+                      label="Valor da taxa adicional (%)"
+                      placeholder="0,00"
                       type="number"
                       v-model="fee"
-                      :suffix="radios == 'true' ? '% a.a.' : '% a.m.'"
+                      suffix="% a.m."
+                      variant="outlined"
+                      @change="calculate"
+                    >
+                    </v-text-field>
+                  </v-col>
+                </v-row>
+
+                <v-row justify="center">
+                  <v-col cols="6" align="center">
+                    <v-text-field
+                      focused
+                      hint="Inclui a correção do mês inicial"
+                      placeholder="01/2010"
+                      label="* Mês/Ano inicial"
+                      variant="outlined"
+                      @change="calculate"
+                    >
+                    </v-text-field>
+                  </v-col>
+                  <v-col cols="6" align="center">
+                    <v-text-field
+                      focused
+                      placeholder="01/2024"
+                      label="* Mês/Ano final"
+                      variant="outlined"
+                      @change="calculate"
+                    >
+                    </v-text-field>
+                  </v-col>
+                </v-row>
+
+                <v-row justify="center">
+                  <v-col cols="12" align="center">
+                    <v-text-field
+                      v-model="initialValue"
+                      focused
+                      hide-details
+                      placeholder="0,00"
+                      label="* Valor a ser corrigido"
+                      type="number"
+                      prefix="R$"
                       variant="outlined"
                       @change="calculate"
                     >
@@ -82,26 +127,40 @@
                       size="large"
                       @click="calculate"
                     >
-                      Calcular
+                      Corrigir valor
                     </v-btn>
                   </v-col>
                 </v-row>
 
                 <v-row justify="center">
-                  <v-col cols="12" sm="11" align="center">
+                  <v-col cols="12" align="center">
                     <v-text-field
+                      v-model="finalValue"
                       variant="outlined"
                       hide-details
+                      placeholder="0,00"
                       readonly
                       focused
-                      label="Resultado:"
+                      label="Valor corrigido:"
                       color="green-darken-2"
                       type="number"
-                      v-model="feeCalculated"
-                      :suffix="radios == 'true' ? '% a.m.' : '% a.a.'"
+                      prefix="R$"
                       @change="calculate"
                     >
                     </v-text-field>
+                  </v-col>
+                </v-row>
+                
+                <v-row justify="center">
+                  <v-col align="center" class="pa-0">
+                    <v-card-text class="pt-0 text-green-darken-4">
+                      Período: {{ this.months_final }} meses
+                    </v-card-text>
+                  </v-col>
+                  <v-col align="center" class="pa-0">
+                    <v-card-text class="pt-0 text-green-darken-4">
+                      Taxa: {{ this.indexItens[this.indexValue_final].title }} + {{ this.fee_final }}% a.m.
+                    </v-card-text>
                   </v-col>
                 </v-row>
               </v-card-item>
@@ -147,10 +206,20 @@ import { useHead } from '@vueuse/head'
 export default {
   data () {
     return {
-      fee: '',
-      feeCalculated: '',
+      indexValue: 2,
+      indexItens: [
+        {title: 'IGP-DI', value: 0, props: {subtitle: 'FGV'}},
+        {title: 'IGP-M', value: 1, props: {subtitle: 'FGV'}},
+        {title: 'IPCA', value: 2, props: {subtitle: 'IBGE'}}
+      ],
 
-      radios: 'true',
+      fee: '',
+      initialValue: '',
+      finalValue: '',
+
+      months_final: 0,
+      indexValue_final: 2,
+      fee_final: 0,
     }
   },
   mounted () {
@@ -171,7 +240,7 @@ export default {
   },
   setup() {
     useHead({
-      title: 'Calcula pra mim! - Conversor de Juros Anuais e Mensais',
+      title: 'Calcula pra mim! - Correção de Valores por Índices de Preço',
       meta: [
         {
           name: 'description',

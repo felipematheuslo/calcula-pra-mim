@@ -21,6 +21,7 @@ module.exports = defineConfig({
     // and falls back to `public/index.html` if not found.
     // Output filename is inferred to be `subpage.html`.
     conversordejuros: 'src/pages/conversorjuros.js',
+    correcaodevalores: 'src/pages/correcaovalores.js',
     mercado: 'src/pages/mercado.js'
   }
 })

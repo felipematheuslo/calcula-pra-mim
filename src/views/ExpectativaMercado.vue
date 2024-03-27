@@ -26,13 +26,13 @@
         <v-row justify="center" class="py-0 mb-10">
           <v-col cols="12" md="10" align="center" class="py-0">
             <v-text class="mb-2 text-wrap">
-              Projeções dos principais índices do mercado brasileiro para os próximos anos
+              Resumo das projeções dos principais índices de mercado para os próximos anos.
             </v-text>
           </v-col>
         </v-row>
 
         <v-row justify="center" class="mt-3 mb-10">
-          <v-col cols="12" md="10" align="center" class="pa-0">
+          <v-col cols="12" md="8" align="center" class="pa-0">
             <v-card
               color="indigo-darken-1"
               variant="outlined"
@@ -82,39 +82,42 @@
 
 <script>
 import { useHead } from '@vueuse/head'
+import focus from '../assets/focus.json'
 
 export default {
   data () {
     return {
+      focus: focus,
+
       updateDate: '',
       headers: [
         { title: 'Índice', align: 'center', key: 'indice', sortable: false },
-        { title: '2024', align: 'center', key: 'ano0', sortable: false },
-        { title: '2025', align: 'center', key: 'ano1', sortable: false },
-        { title: '2026', align: 'center', key: 'ano2', sortable: false },
-        { title: '2027', align: 'center', key: 'ano3', sortable: false },
+        { title: focus.ano0, align: 'center', key: 'ano0', sortable: false },
+        { title: focus.ano1, align: 'center', key: 'ano1', sortable: false },
+        { title: focus.ano2, align: 'center', key: 'ano2', sortable: false },
+        { title: focus.ano3, align: 'center', key: 'ano3', sortable: false },
       ],
       projecoes: [
         {
-          indice: 'Dólar (R$/US$)',
-          ano0: '4.95',
-          ano1: '5.00',
-          ano2: '5.04',
-          ano3: '5.10',
+          indice: 'IPCA (variação%)',
+          ano0: focus.ipca[0].ano0,
+          ano1: focus.ipca[0].ano1,
+          ano2: focus.ipca[0].ano2,
+          ano3: focus.ipca[0].ano3,
         },
         {
           indice: 'Selic (% a.a)',
-          ano0: '9.00',
-          ano1: '8.50',
-          ano2: '8.50',
-          ano3: '8.50',
+          ano0: focus.selic[0].ano0,
+          ano1: focus.selic[0].ano1,
+          ano2: focus.selic[0].ano2,
+          ano3: focus.selic[0].ano3,
         },
         {
-          indice: 'IPCA (variação%)',
-          ano0: '3.79',
-          ano1: '3.52',
-          ano2: '3.50',
-          ano3: '3.50',
+          indice: 'Dólar (R$/US$)',
+          ano0: focus.dolar[0].ano0,
+          ano1: focus.dolar[0].ano1,
+          ano2: focus.dolar[0].ano2,
+          ano3: focus.dolar[0].ano3,
         },
         {
           indice: 'IGP-M (variação%)',
@@ -127,7 +130,7 @@ export default {
     }
   },
   mounted () {
-    this.updateDate = '19/03/2024'
+    this.updateDate = this.focus.updateDate
   },
   methods: {
   },
@@ -154,6 +157,6 @@ export default {
   font-weight: bolder;
 }
 .v-data-table-footer {
-  display: none;
+  display: none !important;
 }
 </style>

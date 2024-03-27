@@ -96,12 +96,12 @@
 
               <v-card-actions>
                 <v-btn
-                  disabled
                   class="my-2 ms-2"
                   variant="outlined"
                   rounded="xl"
+                  href="correcaodevalores.html"
                 >
-                  Em breve
+                  Usar
                 </v-btn>
               </v-card-actions>
             </v-card>
