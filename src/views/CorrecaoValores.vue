@@ -195,6 +195,7 @@
             </v-text>
           </v-col>
         </v-row>
+        {{ this.ipca_history.year[2].month[10].value }}
       </v-main>
     </v-layout>
   </v-container>
@@ -202,10 +203,13 @@
 
 <script>
 import { useHead } from '@vueuse/head'
+import ipca_history from '../assets/ipca_history.json'
 
 export default {
   data () {
     return {
+      ipca_history: ipca_history,
+      
       indexValue: 2,
       indexItens: [
         {title: 'IGP-DI', value: 0, props: {subtitle: 'FGV'}},
