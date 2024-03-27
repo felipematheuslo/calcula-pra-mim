@@ -225,307 +225,307 @@
         {
             "month": [
                 {"value": 2007},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.44},
+                {"value": 0.44},
+                {"value": 0.37},
+                {"value": 0.25},
+                {"value": 0.28},
+                {"value": 0.28},
+                {"value": 0.24},
+                {"value": 0.47},
+                {"value": 0.18},
+                {"value": 0.3},
+                {"value": 0.38},
+                {"value": 0.74}
             ]
         },
         {
             "month": [
                 {"value": 2008},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.54},
+                {"value": 0.49},
+                {"value": 0.48},
+                {"value": 0.55},
+                {"value": 0.79},
+                {"value": 0.74},
+                {"value": 0.53},
+                {"value": 0.28},
+                {"value": 0.26},
+                {"value": 0.45},
+                {"value": 0.36},
+                {"value": 0.28}
             ]
         },
         {
             "month": [
                 {"value": 2009},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.48},
+                {"value": 0.55},
+                {"value": 0.2},
+                {"value": 0.48},
+                {"value": 0.47},
+                {"value": 0.36},
+                {"value": 0.24},
+                {"value": 0.15},
+                {"value": 0.24},
+                {"value": 0.28},
+                {"value": 0.41},
+                {"value": 0.37}
             ]
         },
         {
             "month": [
                 {"value": 2010},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.75},
+                {"value": 0.78},
+                {"value": 0.52},
+                {"value": 0.57},
+                {"value": 0.43},
+                {"value": 0},
+                {"value": 0.01},
+                {"value": 0.04},
+                {"value": 0.45},
+                {"value": 0.75},
+                {"value": 0.83},
+                {"value": 0.63}
             ]
         },
         {
             "month": [
                 {"value": 2011},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.83},
+                {"value": 0.8},
+                {"value": 0.79},
+                {"value": 0.77},
+                {"value": 0.47},
+                {"value": 0.15},
+                {"value": 0.16},
+                {"value": 0.37},
+                {"value": 0.53},
+                {"value": 0.43},
+                {"value": 0.52},
+                {"value": 0.5}
             ]
         },
         {
             "month": [
                 {"value": 2012},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.56},
+                {"value": 0.45},
+                {"value": 0.21},
+                {"value": 0.64},
+                {"value": 0.36},
+                {"value": 0.08},
+                {"value": 0.43},
+                {"value": 0.41},
+                {"value": 0.57},
+                {"value": 0.59},
+                {"value": 0.6},
+                {"value": 0.79}
             ]
         },
         {
             "month": [
                 {"value": 2013},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.86},
+                {"value": 0.6},
+                {"value": 0.47},
+                {"value": 0.55},
+                {"value": 0.37},
+                {"value": 0.26},
+                {"value": 0.03},
+                {"value": 0.24},
+                {"value": 0.35},
+                {"value": 0.57},
+                {"value": 0.54},
+                {"value": 0.92}
             ]
         },
         {
             "month": [
                 {"value": 2014},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.55},
+                {"value": 0.69},
+                {"value": 0.92},
+                {"value": 0.67},
+                {"value": 0.46},
+                {"value": 0.4},
+                {"value": 0.01},
+                {"value": 0.25},
+                {"value": 0.57},
+                {"value": 0.42},
+                {"value": 0.51},
+                {"value": 0.78}
             ]
         },
         {
             "month": [
                 {"value": 2015},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 1.24},
+                {"value": 1.22},
+                {"value": 1.32},
+                {"value": 0.71},
+                {"value": 0.74},
+                {"value": 0.79},
+                {"value": 0.62},
+                {"value": 0.22},
+                {"value": 0.54},
+                {"value": 0.82},
+                {"value": 1.01},
+                {"value": 0.96}
             ]
         },
         {
             "month": [
                 {"value": 2016},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 1.27},
+                {"value": 0.9},
+                {"value": 0.43},
+                {"value": 0.61},
+                {"value": 0.78},
+                {"value": 0.35},
+                {"value": 0.52},
+                {"value": 0.44},
+                {"value": 0.08},
+                {"value": 0.26},
+                {"value": 0.18},
+                {"value": 0.3}
             ]
         },
         {
             "month": [
                 {"value": 2017},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.38},
+                {"value": 0.33},
+                {"value": 0.25},
+                {"value": 0.14},
+                {"value": 0.31},
+                {"value": -0.23},
+                {"value": 0.24},
+                {"value": 0.19},
+                {"value": 0.16},
+                {"value": 0.42},
+                {"value": 0.28},
+                {"value": 0.44}
             ]
         },
         {
             "month": [
                 {"value": 2018},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.29},
+                {"value": 0.32},
+                {"value": 0.09},
+                {"value": 0.22},
+                {"value": 0.4},
+                {"value": 1.26},
+                {"value": 0.33},
+                {"value": -0.09},
+                {"value": 0.48},
+                {"value": 0.45},
+                {"value": -0.21},
+                {"value": 0.15}
             ]
         },
         {
             "month": [
                 {"value": 2019},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.32},
+                {"value": 0.43},
+                {"value": 0.75},
+                {"value": 0.57},
+                {"value": 0.13},
+                {"value": 0.01},
+                {"value": 0.19},
+                {"value": 0.11},
+                {"value": -0.04},
+                {"value": 0.1},
+                {"value": 0.51},
+                {"value": 1.15}
             ]
         },
         {
             "month": [
                 {"value": 2020},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.21},
+                {"value": 0.25},
+                {"value": 0.07},
+                {"value": -0.31},
+                {"value": -0.38},
+                {"value": 0.26},
+                {"value": 0.36},
+                {"value": 0.24},
+                {"value": 0.64},
+                {"value": 0.86},
+                {"value": 0.89},
+                {"value": 1.35}
             ]
         },
         {
             "month": [
                 {"value": 2021},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.25},
+                {"value": 0.86},
+                {"value": 0.93},
+                {"value": 0.31},
+                {"value": 0.83},
+                {"value": 0.53},
+                {"value": 0.96},
+                {"value": 0.87},
+                {"value": 1.16},
+                {"value": 1.25},
+                {"value": 0.95},
+                {"value": 0.73}
             ]
         },
         {
             "month": [
                 {"value": 2022},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.54},
+                {"value": 1.01},
+                {"value": 1.62},
+                {"value": 1.06},
+                {"value": 0.47},
+                {"value": 0.67},
+                {"value": -0.68},
+                {"value": -0.36},
+                {"value": -0.29},
+                {"value": 0.59},
+                {"value": 0.41},
+                {"value": 0.62}
             ]
         },
         {
             "month": [
                 {"value": 2023},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.53},
+                {"value": 0.84},
+                {"value": 0.71},
+                {"value": 0.61},
+                {"value": 0.23},
+                {"value": -0.08},
+                {"value": 0.12},
+                {"value": 0.23},
+                {"value": 0.23},
+                {"value": 0.24},
+                {"value": 0.28},
+                {"value": 0.56}
             ]
         },
         {
             "month": [
                 {"value": 2024},
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
-                {"value": 
+                {"value": 0.42},
+                {"value": 0.83},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
             ]
         }
     ]
