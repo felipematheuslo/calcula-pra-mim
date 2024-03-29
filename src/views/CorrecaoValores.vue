@@ -181,7 +181,7 @@ export default {
       ipca_history: ipca_history,
       
       indexItens: [
-        {title: 'IPCA', value: 0, props: {subtitle: 'IBGE'}}
+        {title: 'IPCA (IBGE)', value: 0, props: {subtitle: 'Jul/1994 - Fev/2024'}}
       ],
 
       monthsList: [
@@ -235,13 +235,13 @@ export default {
       indexValue: 0,
       fee: '0',
 
-      initialDate_Month: 1,
-      initialDate_Year: 1,
+      initialDate_Month: 7,
+      initialDate_Year: 0,
 
-      finalDate_Month: 1,
+      finalDate_Month: 2,
       finalDate_Year: 30,
 
-      initialValue: '1000',
+      initialValue: '0',
       finalValue: '0',
 
       months_final: 0,
