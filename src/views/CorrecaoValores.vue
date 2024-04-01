@@ -18,7 +18,24 @@
         <v-row justify="center" class="my-3">
           <v-col align="center" class="py-0 mb-3">
             <v-text class="text-wrap text-h5">
-              Correção de Valores por Índices de Preço
+              Correção de Valores por Índice de Preço com Juros
+            </v-text>
+          </v-col>
+        </v-row>
+
+        <v-row justify="center" class="my-3">
+          <v-col cols="12" md="11" class="py-0">
+            <v-text class="mb-2 text-wrap">
+              <p class="text-justify">
+              Calculadora online para te ajudar a corrigir de forma rápida um valor baseado na variação 
+              de um índice entre duas datas e aplicando uma taxa de juros adicional. Observe que a calculadora 
+              trabalha somente com a moeda corrente, o Real (Julho de 1994 até o momento).
+              </p>
+              <br/>
+              <p class="text-justify">
+              Esta calculadora assume juros mensal, compondo a correção do valor mês a mês.
+              </p>
+              <br/>
             </v-text>
           </v-col>
         </v-row>
@@ -37,7 +54,8 @@
                   <v-col cols="12" align="left">
                     <v-select
                       v-model="indexValue"
-                      hide-details
+                      :hint="indexItens[indexValue].range"
+                      persistent-hint
                       :items="indexItens"
                       variant="outlined"
                       label="Índice para correção"
@@ -52,7 +70,7 @@
                       v-model="fee"
                       hide-details
                       clearable
-                      label="Taxa adicional"
+                      label="Juros"
                       type="number"
                       suffix="% a.m."
                       variant="outlined"
@@ -125,6 +143,12 @@
                     >
                       Corrigir valor
                     </v-btn>
+                    <p v-if="errorDateBefore" class="text-red mt-1">
+                      Erro: Data inicial anterior a Julho de 1994
+                    </p>
+                    <p v-if="errorDateAfter" class="text-red mt-1">
+                      Erro: Índice não disponível para a data final
+                    </p>
                   </v-col>
                 </v-row>
 
@@ -155,7 +179,7 @@
                   </v-col>
                   <v-col align="center" class="pa-0">
                     <v-card-text class="pt-0 text-green-darken-4">
-                      Taxa: {{ this.indexItens[this.indexValue_final].title }} + {{ this.fee_final }}% a.m.
+                      {{ this.indexItens[this.indexValue_final].title }} + {{ this.fee_final }}% a.m.
                     </v-card-text>
                   </v-col>
                 </v-row>
@@ -166,13 +190,53 @@
             </v-card>
           </v-col>
         </v-row>
+
+        <v-row justify="center" class="my-3">
+          <v-col cols="12" md="11" class="py-0">
+            <v-text class="mb-2 text-wrap">
+              <br/>
+              <p class="text-center text-h6">
+              <b>Instruções de Uso:</b>
+              </p>
+              <br/>
+              <p>
+              <b>Selecione o índice</b>: Selecione o índice a ser considerado para a correção.
+              </p>
+              <p>
+              <b>Digite a taxa de juros (em porcentagem)</b>: Insira a taxa de juros que você. 
+              Por exemplo, se a taxa for de 1,00%, insira "1". Caso não se aplique juros, digite "0".
+              </p>
+              <p>
+              <b>Selecione a data inicial</b>: Selecione o mês/ano a partir do qual você deseja corrigir
+              o valor. O mês escolhido é incluído na correção. Caso não queira que ele seja incluído, 
+              selecione o mês seguinte.
+              </p>
+              <p>
+              <b>Selecione a data final</b>: Selecione o mês/ano até o qual você deseja corrigir
+              o valor. O mês escolhido é incluído na correção. Caso não queira que ele seja incluído, 
+              selecione o mês anterior.
+              </p>
+              <p>
+              <b>Digite o valor a ser corrigido</b>: Insira o valor em reais que deseja corrigir. 
+              Por exemplo, se o valor for R$900,00 insira "900".
+              </p>
+              <p>
+              <b>Clique em "Corrigir Valor"</b>: Depois de inserir as informações anteriores, clique no botão 
+              "Corrigir Valor" para obter o valor atualizado.
+              </p>
+              <p>
+              <b>Resultado</b>: O resultado será exibido imediatamente abaixo do botão de cálculo, seguido de 
+              informações adicionais sobre o cálculo.
+              </p>
+            </v-text>
+          </v-col>
+        </v-row>
       </v-main>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import { useHead } from '@vueuse/head'
 import ipca_history from '../assets/ipca_history.json'
 
 export default {
@@ -181,7 +245,7 @@ export default {
       ipca_history: ipca_history,
       
       indexItens: [
-        {title: 'IPCA (IBGE)', value: 0, props: {subtitle: 'Jul/1994 - Fev/2024'}}
+        {title: 'IPCA', value: 0, props: {subtitle: '(IBGE)'}, range: 'Jul/1994 - Fev/2024'}
       ],
 
       monthsList: [
@@ -199,50 +263,26 @@ export default {
         {title: 'Dez', value: 12}
       ],
       yearsList: [
-        {title: '1994', value: 0},
-        {title: '1995', value: 1},
-        {title: '1996', value: 2},
-        {title: '1997', value: 3},
-        {title: '1998', value: 4},
-        {title: '1999', value: 5},
-        {title: '2000', value: 6},
-        {title: '2001', value: 7},
-        {title: '2002', value: 8},
-        {title: '2003', value: 9},
-        {title: '2004', value: 10},
-        {title: '2005', value: 11},
-        {title: '2006', value: 12},
-        {title: '2007', value: 13},
-        {title: '2008', value: 14},
-        {title: '2009', value: 15},
-        {title: '2010', value: 16},
-        {title: '2011', value: 17},
-        {title: '2012', value: 18},
-        {title: '2013', value: 19},
-        {title: '2014', value: 20},
-        {title: '2015', value: 21},
-        {title: '2016', value: 22},
-        {title: '2017', value: 23},
-        {title: '2018', value: 24},
-        {title: '2019', value: 25},
-        {title: '2020', value: 26},
-        {title: '2021', value: 27},
-        {title: '2022', value: 28},
-        {title: '2023', value: 29},
-        {title: '2024', value: 30}
+        1994, 1995, 1996, 1997, 1998, 1999, 2000,
+        2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,
+        2021, 2022, 2023, 2024
       ],
 
       indexValue: 0,
-      fee: '0',
+      fee: '0.00',
 
       initialDate_Month: 7,
-      initialDate_Year: 0,
+      initialDate_Year: 1994,
+
+      errorDateBefore: false,
+      errorDateAfter: false,
 
       finalDate_Month: 2,
-      finalDate_Year: 30,
+      finalDate_Year: '2024',
 
-      initialValue: '0',
-      finalValue: '0',
+      initialValue: '1000.00',
+      finalValue: '0.00',
 
       months_final: 0,
       indexValue_final: 0,
@@ -253,44 +293,52 @@ export default {
   },
   methods: {
     calculate: function () {
-      var maxYear, maxMonth, iYear, iMonth, fYear, fMonth, monthIndex, aux
+      var index, maxYear, maxMonth, iYear, iMonth, fYear, fMonth, monthIndex, aux
+
+      switch (this.indexValue){
+        case 0:
+          index = this.ipca_history
+          break;
+      }
 
       if (this.fee == null){
         this.fee = 0
       }
 
       this.fee_final = this.fee
+      this.finalValue = '0.00'
 
-      maxYear = this.ipca_history.year.length + 1993
-      maxMonth = this.ipca_history.year[maxYear - 1994].month.length - 1
+      maxYear = index.year.length - 1
+      maxMonth = index.year[maxYear].month.length - 1
 
-      iYear = this.initialDate_Year + 1994
+      iYear = this.initialDate_Year
       iMonth = this.initialDate_Month
-
-      fYear = this.finalDate_Year + 1994
+      fYear = this.finalDate_Year
       fMonth = this.finalDate_Month
 
       if (iYear == 1994){
         if (iMonth < 7){
+          this.errorDateBefore = true
           return
         }
       }
+      this.errorDateBefore = false
 
       if (fYear == maxYear){
         if (fMonth > maxMonth){
+          this.errorDateAfter = true
           return
         }
       }
+      this.errorDateAfter = false
 
       this.calculateMonths(iYear, iMonth, fYear, fMonth)
 
-      iYear -= 1994
-      fYear -= 1994
       aux = this.initialValue
 
       // calculate first year
       for (var i = iMonth; i < 13; i++) {
-        monthIndex = this.ipca_history.year[iYear].month[i].value
+        monthIndex = index.year[iYear].month[i].value
         aux *= (1 + (monthIndex/100) + (this.fee/100))
       }
       iYear++
@@ -298,7 +346,7 @@ export default {
       // calculate middle years
       while (iYear < fYear) {
         for (i = 1; i < 13; i++) {
-          monthIndex = this.ipca_history.year[iYear].month[i].value
+          monthIndex = index.year[iYear].month[i].value
           aux *= (1 + (monthIndex/100) + (this.fee/100))
         }
         iYear++
@@ -306,7 +354,7 @@ export default {
 
       // calculate last year
       for (i = 1; i <= fMonth; i++) {
-        monthIndex = this.ipca_history.year[fYear].month[i].value
+        monthIndex = index.year[fYear].month[i].value
         aux *= (1 + (monthIndex/100) + (this.fee/100))
       }
 
@@ -319,17 +367,6 @@ export default {
       this.months_final += (fYear - iYear - 1) * 12 
       this.months_final += fMonth
     },
-  },
-  setup() {
-    useHead({
-      title: 'Calcula pra mim! - Correção de Valores por Índices de Preço',
-      meta: [
-        {
-          name: 'description',
-          content: 'My website',
-        },
-      ],
-    })
   },
 };
 </script>

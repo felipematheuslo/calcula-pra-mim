@@ -27,7 +27,7 @@
           <v-col cols="12" md="11" class="py-0">
             <v-text class="mb-2 text-wrap">
               <p class="text-justify">
-              Calculadora online para ajudar você a converter taxa de juros anual em mensal, ou 
+              Calculadora online para te ajudar a converter taxa de juros anual para mensal, ou 
               taxa de juros mensal para anual, de forma rápida e precisa.
               </p>
               <p class="text-justify">
@@ -141,8 +141,6 @@
 </template>
 
 <script>
-import { useHead } from '@vueuse/head'
-
 export default {
   data () {
     return {
@@ -167,17 +165,6 @@ export default {
         this.feeCalculated *= 100
       }
     },
-  },
-  setup() {
-    useHead({
-      title: 'Calcula pra mim! - Conversor de Juros Anuais e Mensais',
-      meta: [
-        {
-          name: 'description',
-          content: 'My website',
-        },
-      ],
-    })
   },
 };
 </script>

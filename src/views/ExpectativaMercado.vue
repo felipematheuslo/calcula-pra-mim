@@ -81,7 +81,6 @@
 </template>
 
 <script>
-import { useHead } from '@vueuse/head'
 import focus from '../assets/focus.json'
 
 export default {
@@ -121,10 +120,10 @@ export default {
         },
         {
           indice: 'IGP-M (variação%)',
-          ano0: '2.55',
-          ano1: '3.80',
-          ano2: '3.90',
-          ano3: '3.80',
+          ano0: focus.igpm[0].ano0,
+          ano1: focus.igpm[0].ano1,
+          ano2: focus.igpm[0].ano2,
+          ano3: focus.igpm[0].ano3,
         },
       ],
     }
@@ -133,17 +132,6 @@ export default {
     this.updateDate = this.focus.updateDate
   },
   methods: {
-  },
-  setup() {
-    useHead({
-      title: 'Calcula pra mim! - Expectativas de mercado',
-      meta: [
-        {
-          name: 'description',
-          content: 'My website',
-        },
-      ],
-    })
   },
 };
 </script>
