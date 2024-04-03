@@ -24,7 +24,7 @@
         </v-row>
 
         <v-row justify="center" class="py-0 mb-10">
-          <v-col cols="12" md="10" align="center" class="py-0">
+          <v-col cols="12" md="8" align="center" class="py-0">
             <v-text class="mb-2 text-wrap">
               Resumo das projeções dos principais índices de mercado para os próximos anos.
             </v-text>
@@ -61,7 +61,7 @@
         </v-row>
 
         <v-row justify="center" class="my-5">
-          <v-col cols="12" md="10" align="center" class="py-0">
+          <v-col cols="12" md="8" align="center" class="py-0">
             <v-text class="text-wrap">
               <p class="text-h6">
               O que é o Relatório Focus?

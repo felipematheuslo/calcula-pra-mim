@@ -24,7 +24,7 @@
         </v-row>
 
         <v-row justify="center" class="my-3">
-          <v-col cols="12" md="11" class="py-0">
+          <v-col cols="12" md="8" class="py-0">
             <v-text class="mb-2 text-wrap">
               <p class="text-justify">
               Calculadora online para te ajudar a converter taxa de juros anual para mensal, ou 
@@ -109,7 +109,7 @@
         </v-row>
 
         <v-row justify="center" class="my-3">
-          <v-col cols="12" md="11" class="py-0">
+          <v-col cols="12" md="8" class="py-0">
             <v-text class="mb-2 text-wrap">
               <br/>
               <p class="text-center text-h6">
