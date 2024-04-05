@@ -14,10 +14,6 @@ const vuetify = createVuetify({
   directives,
 })
 
-// Head
-import { createHead } from '@vueuse/head'
-const head = createHead()
-
 // Firebase
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
@@ -33,4 +29,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
 
-createApp(App).use(analytics).use(head).use(vuetify).mount('#app')
+createApp(App).use(analytics).use(vuetify).mount('#app')

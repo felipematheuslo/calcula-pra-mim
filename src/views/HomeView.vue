@@ -73,7 +73,7 @@
               <v-col cols="12" sm="6" class="pa-0 d-flex">
                 <v-card color="indigo" class="mx-2 mb-3 d-flex flex-grow-1 flex-column">
                   <v-card-title class="text-h5 text-wrap">
-                    Correção de valores por índice + taxa
+                    Correção de valores por índice + juros
                   </v-card-title>
 
                   <v-card-text class="text-wrap d-flex flex-row">
