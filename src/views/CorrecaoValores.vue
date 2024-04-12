@@ -245,7 +245,7 @@ export default {
       ipca_history: ipca_history,
       
       indexItens: [
-        {title: 'IPCA', value: 0, props: {subtitle: '(IBGE)'}, range: 'Jul/1994 - Fev/2024'}
+        {title: 'IPCA', value: 0, props: {subtitle: '(IBGE)'}, range: 'Jul/1994 - Mar/2024'}
       ],
 
       monthsList: [
@@ -278,7 +278,7 @@ export default {
       errorDateBefore: false,
       errorDateAfter: false,
 
-      finalDate_Month: 2,
+      finalDate_Month: 3,
       finalDate_Year: '2024',
 
       initialValue: '1000.00',
