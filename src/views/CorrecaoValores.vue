@@ -32,10 +32,6 @@
               trabalha somente com a moeda corrente, o Real (Julho de 1994 até o momento).
               </p>
               <br/>
-              <p class="text-justify">
-              Esta calculadora assume juros mensal, compondo a correção do valor mês a mês.
-              </p>
-              <br/>
             </v-text>
           </v-col>
         </v-row>
@@ -78,6 +74,11 @@
                     </v-text-field>
                   </v-col>
                 </v-row>
+
+                <v-radio-group inline v-model="feeType">
+                  <v-radio label="Juros Simples" value="false"></v-radio>
+                  <v-radio label="Juros Compostos" value="true"></v-radio>
+                </v-radio-group>
 
                 <v-row justify="center">
                   <v-col cols="12" sm="6" align="center" class="d-flex">
@@ -143,11 +144,14 @@
                     >
                       Corrigir valor
                     </v-btn>
-                    <p v-if="errorDateBefore" class="text-red mt-1">
+                    <p v-if="errorPreviousDate" class="text-red mt-1">
                       Erro: Data inicial anterior a Julho de 1994
                     </p>
-                    <p v-if="errorDateAfter" class="text-red mt-1">
+                    <p v-if="errorLatterDate" class="text-red mt-1">
                       Erro: Índice não disponível para a data final
+                    </p>
+                    <p v-if="errorFinalBeforeInitial" class="text-red mt-1">
+                      Erro: Data inicial posterior a data final
                     </p>
                   </v-col>
                 </v-row>
@@ -174,12 +178,7 @@
                 <v-row justify="center">
                   <v-col align="center" class="pa-0">
                     <v-card-text class="pt-0 text-green-darken-4">
-                      Período (meses): {{ this.months_final }}
-                    </v-card-text>
-                  </v-col>
-                  <v-col align="center" class="pa-0">
-                    <v-card-text class="pt-0 text-green-darken-4">
-                      {{ this.indexItens[this.indexValue_final].title }} + {{ this.fee_final }}% a.m.
+                      Período (meses): {{ this.months }}
                     </v-card-text>
                   </v-col>
                 </v-row>
@@ -271,12 +270,14 @@ export default {
 
       indexValue: 0,
       fee: '0.00',
+      feeType: 'false',
 
       initialDate_Month: 7,
       initialDate_Year: 1994,
 
-      errorDateBefore: false,
-      errorDateAfter: false,
+      errorPreviousDate: false,
+      errorLatterDate: false,
+      errorFinalBeforeInitial: false,
 
       finalDate_Month: 3,
       finalDate_Year: '2024',
@@ -284,16 +285,14 @@ export default {
       initialValue: '1000.00',
       finalValue: '0.00',
 
-      months_final: 0,
-      indexValue_final: 0,
-      fee_final: 0,
+      months: 0,
     }
   },
   mounted () {
   },
   methods: {
     calculate: function () {
-      var index, maxYear, maxMonth, iYear, iMonth, fYear, fMonth, monthIndex, aux
+      var index, iYear, iMonth, fYear, fMonth, monthIndex, aux
 
       switch (this.indexValue){
         case 0:
@@ -305,32 +304,17 @@ export default {
         this.fee = 0
       }
 
-      this.fee_final = this.fee
       this.finalValue = '0.00'
-
-      maxYear = index.year.length - 1
-      maxMonth = index.year[maxYear].month.length - 1
 
       iYear = this.initialDate_Year
       iMonth = this.initialDate_Month
       fYear = this.finalDate_Year
       fMonth = this.finalDate_Month
 
-      if (iYear == 1994){
-        if (iMonth < 7){
-          this.errorDateBefore = true
-          return
-        }
+      if (this.checkValidDates(index, iYear, iMonth, fYear, fMonth) == false) {
+        this.months = 0
+        return
       }
-      this.errorDateBefore = false
-
-      if (fYear == maxYear){
-        if (fMonth > maxMonth){
-          this.errorDateAfter = true
-          return
-        }
-      }
-      this.errorDateAfter = false
 
       this.calculateMonths(iYear, iMonth, fYear, fMonth)
 
@@ -339,7 +323,12 @@ export default {
       // calculate first year
       for (var i = iMonth; i < 13; i++) {
         monthIndex = index.year[iYear].month[i].value
-        aux *= (1 + (monthIndex/100) + (this.fee/100))
+        if (this.feeType == 'false') {
+          aux *= (1 + (monthIndex/100))
+        }
+        else {
+          aux *= (1 + (monthIndex/100) + (this.fee/100))
+        }
       }
       iYear++
 
@@ -347,7 +336,12 @@ export default {
       while (iYear < fYear) {
         for (i = 1; i < 13; i++) {
           monthIndex = index.year[iYear].month[i].value
-          aux *= (1 + (monthIndex/100) + (this.fee/100))
+          if (this.feeType == 'false') {
+            aux *= (1 + (monthIndex/100))
+          }
+          else {
+            aux *= (1 + (monthIndex/100) + (this.fee/100))
+          }
         }
         iYear++
       }
@@ -355,17 +349,62 @@ export default {
       // calculate last year
       for (i = 1; i <= fMonth; i++) {
         monthIndex = index.year[fYear].month[i].value
-        aux *= (1 + (monthIndex/100) + (this.fee/100))
+        if (this.feeType == 'false') {
+          aux *= (1 + (monthIndex/100))
+        }
+        else {
+          aux *= (1 + (monthIndex/100) + (this.fee/100))
+        }
       }
 
+      if (this.feeType == 'false') {
+        aux += (this.months*(this.initialValue*(this.fee/100)))
+      }
+      
       this.finalValue = aux.toFixed(2)
 
       return
     },
     calculateMonths: function (iYear, iMonth, fYear, fMonth) {
-      this.months_final = 13 - iMonth
-      this.months_final += (fYear - iYear - 1) * 12 
-      this.months_final += fMonth
+      this.months = 13 - iMonth
+      this.months += (fYear - iYear - 1) * 12 
+      this.months += fMonth
+    },
+    checkValidDates: function (index, iYear, iMonth, fYear, fMonth) {
+      var maxYear, maxMonth
+
+      maxYear = index.year.length - 1
+      maxMonth = index.year[maxYear].month.length - 1
+
+      if (iYear == 1994){
+        if (iMonth < 7){
+          this.errorPreviousDate = true
+          return false
+        }
+      }
+      this.errorPreviousDate = false
+
+      if (fYear == maxYear){
+        if (fMonth > maxMonth){
+          this.errorLatterDate = true
+          return false
+        }
+      }
+      this.errorLatterDate = false
+
+      if (iYear == fYear) {
+        if (fMonth < iMonth) {
+          this.errorFinalBeforeInitial = true
+          return false
+        }
+      }
+      if (fYear < iYear) {
+        this.errorFinalBeforeInitial = true
+        return false
+      }
+      this.errorFinalBeforeInitial = false
+
+      return true
     },
   },
 };
