@@ -30,7 +30,7 @@
               Ferramenta online para te ajudar no cálculo do preço justo, ou valuation, de uma ação negociada na bolsa de valores.
               </p>
               <p class="text-justify">
-              As fórmulas empregadas nos cálculos são as de Décio Bazin, Benjamin Graham e Peter Lynch.
+              As fórmulas empregadas nos cálculos são as de Décio Bazin (em breve), Benjamin Graham (em breve) e Peter Lynch.
               </p>
               <br/>
             </v-text>
@@ -137,20 +137,19 @@
                     </v-btn>
                   </v-col>
                 </v-row>
-
-                <v-row justify="center">
-                  <v-col align="center">
-                    <div
-                      id="lynch"
-                      style="width: 600px; height:320px;"
-                      class="mt-5"
-                    >
-                    </div>
-                  </v-col>
-                </v-row>
-
               </v-card-item>
             </v-card>
+          </v-col>
+        </v-row>
+
+        <v-row justify="center">
+          <v-col align="center" class="px-0">
+            <div
+              id="lynch"
+              style="width: 292px; height:260px;"
+              class="mt-5"
+            >
+            </div>
           </v-col>
         </v-row>
       </v-main>
@@ -175,7 +174,9 @@ export default {
       vpa: '',
       lpa: '',
       pl: '6.28',
+
       lynchResult: '0',
+
       myChart: '',
       option: {
         title: {
@@ -239,13 +240,13 @@ export default {
             axisLabel: {
               color: 'black',
               fontSize: 13,
-              distance: -40,
+              distance: -36,
               rotate: 'tangential',
               formatter: function (value) {
                 if (value === 0.5) {
                   return 'Caro';
                 } else if (value === 1.25) {
-                  return 'Preço justo';
+                  return 'Justo';
                 } else if (value === 2) {
                   return 'Barato';
                 } else if (value === 3.3) {
@@ -278,7 +279,7 @@ export default {
             },
             data: [
               {
-                value: '2'
+                value: '0'
               }
             ]
           }
