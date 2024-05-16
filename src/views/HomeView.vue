@@ -7,6 +7,12 @@
         </v-app-bar-title>
       </v-app-bar>
 
+      <v-app-bar height="34" color="indigo-darken-1" class="pa-0 ma-0">
+        <v-btn> Página inicial </v-btn>
+        
+        <v-btn> Sobre </v-btn>
+      </v-app-bar>
+
       <v-main>
         <v-row justify="center" class="mb-4">
           <v-col cols="12" md="8">
