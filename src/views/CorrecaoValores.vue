@@ -237,14 +237,17 @@
 
 <script>
 import ipca_history from '../assets/ipca_history.json'
+import igpm_history from '../assets/igpm_history.json'
 
 export default {
   data () {
     return {
       ipca_history: ipca_history,
+      igpm_history: igpm_history,
       
       indexItens: [
-        {title: 'IPCA', value: 0, props: {subtitle: '(IBGE)'}, range: 'Jul/1994 - Mar/2024'}
+        {title: 'IPCA', value: 0, props: {subtitle: '(IBGE)'}, range: 'Jul/1994 - Abr/2024'},
+        {title: 'IGP-M', value: 1, props: {subtitle: '(FGV)'}, range: 'Jul/1994 - Abr/2024'}
       ],
 
       monthsList: [
@@ -279,8 +282,8 @@ export default {
       errorLatterDate: false,
       errorFinalBeforeInitial: false,
 
-      finalDate_Month: 3,
-      finalDate_Year: '2024',
+      finalDate_Month: 7,
+      finalDate_Year: '1994',
 
       initialValue: '1000.00',
       finalValue: '0.00',
@@ -297,6 +300,9 @@ export default {
       switch (this.indexValue){
         case 0:
           index = this.ipca_history
+          break;
+        case 1:
+          index = this.igpm_history
           break;
       }
 
@@ -320,21 +326,9 @@ export default {
 
       aux = this.initialValue
 
-      // calculate first year
-      for (var i = iMonth; i < 13; i++) {
-        monthIndex = index.year[iYear].month[i].value
-        if (this.feeType == 'false') {
-          aux *= (1 + (monthIndex/100))
-        }
-        else {
-          aux *= (1 + (monthIndex/100) + (this.fee/100))
-        }
-      }
-      iYear++
-
-      // calculate middle years
-      while (iYear < fYear) {
-        for (i = 1; i < 13; i++) {
+      if (iYear < fYear) {
+        // calculate first year
+        for (var i = iMonth; i < 13; i++) {
           monthIndex = index.year[iYear].month[i].value
           if (this.feeType == 'false') {
             aux *= (1 + (monthIndex/100))
@@ -344,16 +338,42 @@ export default {
           }
         }
         iYear++
+
+        // calculate middle years
+        while (iYear < fYear) {
+          for (i = 1; i < 13; i++) {
+            monthIndex = index.year[iYear].month[i].value
+            if (this.feeType == 'false') {
+              aux *= (1 + (monthIndex/100))
+            }
+            else {
+              aux *= (1 + (monthIndex/100) + (this.fee/100))
+            }
+          }
+          iYear++
+        }
+
+        // calculate last year
+        for (i = 1; i <= fMonth; i++) {
+          monthIndex = index.year[fYear].month[i].value
+          if (this.feeType == 'false') {
+            aux *= (1 + (monthIndex/100))
+          }
+          else {
+            aux *= (1 + (monthIndex/100) + (this.fee/100))
+          }
+        }
       }
 
-      // calculate last year
-      for (i = 1; i <= fMonth; i++) {
-        monthIndex = index.year[fYear].month[i].value
-        if (this.feeType == 'false') {
-          aux *= (1 + (monthIndex/100))
-        }
-        else {
-          aux *= (1 + (monthIndex/100) + (this.fee/100))
+      else if (iYear == fYear) {
+        for (i = iMonth; i <= fMonth; i++) {
+          monthIndex = index.year[iYear].month[i].value
+          if (this.feeType == 'false') {
+            aux *= (1 + (monthIndex/100))
+          }
+          else {
+            aux *= (1 + (monthIndex/100) + (this.fee/100))
+          }
         }
       }
 
